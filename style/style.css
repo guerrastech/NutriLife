@@ -1,0 +1,61 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #262626;
+    border: 0;
+}
+
+
+
+/* Estilização do mapa */
+
+
+.mapa-box {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 60px); /* Subtrai a altura da barra de pesquisa */
+    top: 60px; /* Ajusta a posição do mapa para baixo */
+    background-color: aliceblue;
+}
+.mapa-box iframe{
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.info-window img{
+    width: 100px;
+    height: 100px;
+}
+
+/* Estilização da barra de pesquisa */
+
+.pesquisa-local {
+    display: flex;
+    width: 60%;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.pesquisa-local input{
+    width: 95%;
+    border-radius: 5px;
+}
+
+.pesquisa-local button{
+    width: 5%;
+}
+
+.pesquisa-local .localization{
+    background-color: blue;
+}
