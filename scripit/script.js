@@ -74,3 +74,10 @@ document.addEventListener('DOMContentLoaded', function () {
     adicionarMarcadorLocalizacaoUsuario();
     adicionarMarcadoresPreCadastrados();
 });
+
+
+// Logar
+
+function login() {
+    window.location.href = "index.html";
+}

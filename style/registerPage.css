@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--main-font);
+}
+
+body {
+    margin-top: 10%;
+}
+
+.app-info-container {
+    margin: 20px 0px 0px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.app-info-container img {
+    width: 60px;
+    height: 60px; 
+    border-radius: 50px;
+    border: 4px solid var(--theme-color);
+}
+
+.register-container {
+    margin-top: 30px; 
+}
+
+.register-container h2 {
+    margin: 20px 0px 0px 10px;
+}
+
+.register-container p {
+    margin: 20px 10px 0px 10px;
+}
+
+.register-container form {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.register-container form .login-link {
+    margin: 10px 30px 0px 0px; 
+    align-self: flex-end; 
+}
+
+.register-container form p a {
+    text-decoration: none;
+    color: #466546;
+}
+
+.register-container form input {
+    width: 90%;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    background-color: #F3FDF6;
+    padding: 10px;
+    margin-top: 14px;
+    font-size: 16px;
+}
+
+.register-container form input::placeholder {
+    font-size: 16px; 
+}
+
+.register-container .privacy-politic-text a{
+    text-decoration: none;
+    color: var(--theme-color);  
+}
+
+.register-container .submit-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 30%;
+}
+
+.register-container .submit-button button {
+    width: 90%;
+    height: 50px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    background-color: var(--theme-color);
+    border-radius: 5px;
+    margin-bottom: 10px; 
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.register-container .login-link {
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
+}
+
+.register-container .login-link p{
+    font-size: 16px;
+}
+
+.register-container .login-link a {
+    text-decoration: none;
+    color: var(--theme-color);   
+}
