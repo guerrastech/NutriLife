@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -71,4 +71,99 @@ form #value-cad{
 .image-food video,canvas{
     width: 400px;
     height: 300px;
+} */
+
+body {
+    font-family: var(--main-font);
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    background-color: var(--theme-color);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header .return-arrow a {
+    text-decoration: none;
+    color: white;
+}
+
+header .return-arrow svg {
+    width: 25px;
+    height: 25px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+form {
+    background-color: #EEEDEB;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 10px auto;
+    max-width: 500px;
+}
+
+h3 {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+input[type="text"],
+textarea {
+    width: calc(100% - 30px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #DEE3DD;
+    font-size: 15px;
+}
+
+.text-area textarea {
+    resize: none;
+}
+
+.button-photo {
+    text-align: center;
+}
+
+.button-photo button {
+    width: 45%;
+    height: 50px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    background-color: var(--theme-color);
+    border-radius: 10px;
+    margin-bottom: 10px; 
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.image-food {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#video {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+#canvas {
+    display: none;
 }

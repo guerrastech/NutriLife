@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Rubik';
+    font-family: var(--main-font);
 }
 
 body{
@@ -90,7 +90,7 @@ body{
 
 
 
-/* Estilo do footer */
+/* Estilização do footer */
 
 footer {
     display: flex;
@@ -107,6 +107,8 @@ footer {
 
 footer .butoes-footer a{
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 
 footer .butoes-footer {
