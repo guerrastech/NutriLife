@@ -35,18 +35,22 @@ function inicializarMapa() {
         maxZoom: 19,
     }).addTo(map);
 
-    control = L.Routing.control({
-        waypoints: [
-            L.latLng(-8.047562, -34.877002), 
-            L.latLng(-8.047191, -34.959897)
-        ],
-        routeWhileDragging: true,
-        show: false,    
-        lineOptions: {
-            styles: [{color: '#3388ff', opacity: 0.7, weight: 5}]
-        }
+
+    //esse script foi retirado para melhorar a UI do aplicativo, e era responsável por criar rotas
+
+
+    // control = L.Routing.control({
+    //     waypoints: [
+    //         L.latLng(-8.047562, -34.877002), 
+    //         L.latLng(-8.047191, -34.959897)
+    //     ],
+    //     routeWhileDragging: true,
+    //     show: false,    
+    //     lineOptions: {
+    //         styles: [{color: '#3388ff', opacity: 0.7, weight: 5}]
+    //     }
     
-    }).addTo(map);
+    // }).addTo(map);
 }
 
 
@@ -85,20 +89,20 @@ function adicionarMarcadoresPreCadastrados() {
         var marker = L.marker(point.latlng, { icon: iconFood }).addTo(map).bindPopup(point.name);
 
        
-        marker.on('click', function() {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                var userLat = position.coords.latitude;
-                var userLng = position.coords.longitude;
+        // marker.on('click', function() {
+        //     navigator.geolocation.getCurrentPosition(function (position) {
+        //         var userLat = position.coords.latitude;
+        //         var userLng = position.coords.longitude;
 
-                var waypoints = [
-                    L.latLng(userLat, userLng),  
-                    L.latLng(marker.getLatLng()) 
-                ];
+        //         var waypoints = [
+        //             L.latLng(userLat, userLng),  
+        //             L.latLng(marker.getLatLng()) 
+        //         ];
 
-                control.setWaypoints(waypoints);
-                control.route();
-            });
-        });
+        //         control.setWaypoints(waypoints);
+        //         control.route();
+        //     });
+        // });
     });
 }
 
