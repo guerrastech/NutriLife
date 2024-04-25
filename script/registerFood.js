@@ -35,6 +35,8 @@ var cameraAberta = false;
                 video.srcObject.getTracks()[0].stop();
                 cameraAberta = false;
                 atualizarTextoBotao();
-                window.location.href = "pages/home.html";
+                setTimeout(function() {
+                    window.location.href = "home.html";
+                }, 5000);
             }
         });
