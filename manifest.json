@@ -7,7 +7,7 @@
   "orientation": "portrait",
   "scope": "/",
   "short_name": "NutriLife",
-  "start_url": "https://guerrastech.github.io/Nutrilify/",
+  "start_url": "/guerrastech.github.io/Nutrilify/",
   "theme_color": "#466546",
   "icons": [
     {
