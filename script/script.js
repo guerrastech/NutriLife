@@ -142,13 +142,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
+// enter functions
 function login() {
     window.location.href = "index.html";
 }
 
 
-// Side Bar
+function register() {
+    window.location.href = "dietaryRestrictionsPage.html";
+}
+
+
+// Side Bar function
 
 function openNav() {
     document.getElementById("mySidebar").style.width = "200px";
