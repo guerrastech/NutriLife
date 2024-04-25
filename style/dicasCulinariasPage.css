@@ -12,7 +12,7 @@ header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 30px;
+    gap: 70px;
     background-color: var(--theme-color);
     color: #fff;
     padding: 20px;
@@ -34,9 +34,13 @@ header .return-arrow svg {
 .card-container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+
 }
 
 .card-container button {
+    display: flex;
+    justify-content: center;
     text-decoration: none;
     color: var(--theme-color);
     display: contents;

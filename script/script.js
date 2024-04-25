@@ -143,9 +143,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
-
 function login() {
     window.location.href = "index.html";
 }
+
+
+// Side Bar
+
+function openNav() {
+    document.getElementById("mySidebar").style.width = "200px";
+}
+
+function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+}
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById("mySidebar")) {
+        closeNav();
+    }
+};

@@ -1,44 +1,49 @@
-
-async function buscarReceitas(){
-    const url = 'https://gold-anemone-wig.cyclic.app/receitas/todas'
-
-    const response = await fetch(url);
-    if(!response.ok){
-        throw new Error('não foi possivel achar as receitas')
+async function buscarReceitas() {
+    const url = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=618b416857db4fc1a12e6026031c4197&diet=vegetarian';
+    const response = await fetch(url, {
+        mode: 'cors', 
+    });
+    if (!response.ok) {
+        throw new Error('Não foi possível encontrar as receitas');
     }
-
-
-    const data = await response.json();
-    return data.items || [];
+    return await response.json();
 }
 
 
-
-
-
-
+    async function buscarReceitasPreparo(id) {
+    const url = 'https://api.spoonacular.com/recipes/${id}/information?apiKey=618b416857db4fc1a12e6026031c4197';
+    const response = await fetch(url, {
+        mode: 'cors', 
+    });
+    if (!response.ok) {
+        throw new Error('Não foi possível encontrar as receitas');
+    }
+    return await response.json();
+}
 
 
 function criarElementoReceita(receita) {
+    const id = receita.id
+
     const containerFoods = document.querySelector(".card-container");
 
     const link = document.createElement("button");
     link.className = "card-food-container";
     link.onclick = function() {
-        mostrarDetalhe(receita);
+        mostrarDetalhe(receita.id);
     };
 
     const containner = document.createElement("div");
     containner.className = "card-food";
 
     const img = document.createElement("img");
-    img.src = receita.link_imagem; 
-    img.alt = receita.receita; 
+    img.src = receita.image; 
+    img.alt = receita.title; 
     containner.appendChild(img);
 
     const titulo = document.createElement("h2");
     titulo.className = "card-food-title";
-    titulo.innerText = receita.receita; 
+    titulo.innerText = receita.title; 
     containner.appendChild(titulo);
 
     link.appendChild(containner);
@@ -46,42 +51,79 @@ function criarElementoReceita(receita) {
     return link;
 }
 
-(async () => {
-    const receitas = await buscarReceitas();
-    receitas.forEach(receita => {
-        criarElementoReceita(receita);
+
+
+
+
+
+
+async function mostrarDetalhe(id) {
+    const url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=618b416857db4fc1a12e6026031c4197`;
+    const response = await fetch(url, {
+        mode: 'cors', 
     });
-})();
+    if (!response.ok) {
+        throw new Error('Não foi possível obter as informações da receita');
+    }
+    const receita = await response.json();
 
+    const overlay = document.createElement("div");
+    overlay.className = "overlay";
 
+    const overlayInner = document.createElement("div");
+    overlayInner.className = "overlay-inner";
 
+    const close = document.createElement("button");
+    close.className = "close";
+    close.innerHTML = '<i><img src="../assets/icons-sgv/close.svg"></i>';
+    close.addEventListener('click', function() {
+        overlay.style.display = "none";
+    });
 
+    overlayInner.appendChild(close);
 
+    if (receita.analyzedInstructions && receita.analyzedInstructions.length > 0) {
+        const instructionsTitle = document.createElement("h2");
+        instructionsTitle.innerText = "Modo de preparo:";
+        overlayInner.appendChild(instructionsTitle);
 
-function mostrarDetalhe(receita) {
-
-        const overlay = document.createElement("div");
-        overlay.className = "overlay";
-    
-        const overlayInner = document.createElement("div");
-        overlayInner.className = "overlay-inner";
-    
-        const close = document.createElement("button");
-        close.className = "close";
-    
-        const i = document.createElement("i");
-        close.appendChild(i);
-    
-        const icon = document.createElement("img");
-        icon.src = "../assets/icons-sgv/close.svg";
-        i.appendChild(icon);
-        overlayInner.appendChild(close);
-        close.addEventListener('click', function() {
-            overlay.style.display = "none";
+        const instructionsList = document.createElement("ol");
+        receita.analyzedInstructions.forEach(instruction => {
+            instruction.steps.forEach(step => {
+                const instructionItem = document.createElement("li");
+                instructionItem.innerText = step.step;
+                instructionsList.appendChild(instructionItem);
+            });
         });
-    
-        overlay.appendChild(overlayInner); 
-        document.body.appendChild(overlay); 
-    
+        overlayInner.appendChild(instructionsList);
+    } else {
+        const noInstructions = document.createElement("p");
+        noInstructions.innerText = "Não há instruções disponíveis para esta receita.";
+        overlayInner.appendChild(noInstructions);
+    }
+
+    overlay.appendChild(overlayInner);
+    document.body.appendChild(overlay);
+
+    overlay.style.display = "block";
 }
 
+
+
+
+
+
+
+
+
+
+
+    async function carregarReceitas() {
+        const { results } = await buscarReceitas();
+        results.forEach(receita => {
+            criarElementoReceita(receita);
+        });
+        console.log(results)
+    }
+
+    carregarReceitas();
