@@ -13,6 +13,12 @@
     "icons":[
       {
         "src": "android/android-launchericon-512-512.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose": "maskable"
+      },
+      {
+        "src": "android/android-launchericon-512-512.png",
         "sizes": "512x512"
       },
       {
