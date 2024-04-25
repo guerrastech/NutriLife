@@ -162,3 +162,21 @@ window.onclick = function(event) {
         closeNav();
     }
 };
+
+
+//Service Worker 
+
+let newWorker;
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js').then(reg => {
+    reg.addEventListener('updatefound', () => {
+      newWorker = reg.installing;
+    });
+  });
+  let refreshing;
+  navigator.serviceWorker.addEventListener('controllerchange', function () {
+    if (refreshing) return;
+    window.location.reload();
+    refreshing = true;
+  });
+}

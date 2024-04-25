@@ -16,6 +16,7 @@ self.addEventListener('install', event => {
           './assets/app-icons/android/android-launchericon-144-144.png',
           './assets/app-icons/android/android-launchericon-192-192.png',
           './assets/app-icons/android/android-launchericon-512-512.png'
+          
         ]);
       })
   );
