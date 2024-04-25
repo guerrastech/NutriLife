@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#466546"/>
+    <link rel="icon" type="image/png" href="/assets/images/app-icon.png">
+    <meta name="description" content="Category: Healthy Food">
+    <link rel="stylesheet" href="style/loginPage.css">
+    <link rel="stylesheet" href="style/variables.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>NutriLife</title>
+</head>
+<body>
+    <div class="app-info-container">
+        <img src="assets/images/NutriLife-logo.png" alt="Logo do aplicativo">
+    </div>
+    <div class="login-container">
+        <form>
+            <input type="email" name="email" placeholder="Email" required>
+            <input style="margin-top: 35px;" type="password" name="password" placeholder="Senha" required>
+            <div class="forgot-password">
+                <p><a href="#">Esqueceu a senha?</a></p>
+            </div>
+        </form>
+        <div class="submit-button">
+            <button onclick="login()">ENTRAR</button>
+        </div>
+        <div class="register-link">
+            <p>Ainda não tem uma conta? <a href="pages/registerPage.html">Cadastre-se</a></p>
+        </div>
+    </div>
+
+    <script src="script/script.js"></script>
+</body>
+</html>
