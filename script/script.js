@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // enter functions
 function login() {
-    window.location.href = "index.html";
+    window.location.href = "pages/index.html";
 }
 
 
