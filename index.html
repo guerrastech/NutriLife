@@ -44,11 +44,18 @@
         });
       });
       let refreshing;
-      navigator.serviceWorker.addEventListener('controllerchange', function () {
-        if (refreshing) return;
+
+navigator.serviceWorker.register('./sw.js').then(reg => {
+  reg.addEventListener('updatefound', () => {
+    const newWorker = reg.installing;
+    newWorker.addEventListener('statechange', () => {
+      if (newWorker.state === 'activated' && !refreshing) {
         window.location.reload();
         refreshing = true;
-      });
+      }
+    });
+  });
+});
     }
   </script>
 
