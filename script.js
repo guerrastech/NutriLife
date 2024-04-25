@@ -76,9 +76,9 @@ function adicionarMarcadorLocalizacaoUsuario() {
 
 function adicionarMarcadoresPreCadastrados() {
     var points = [
-        { name: "Praia de Boa Viagem", latlng: [-8.121999, -34.901051] },
-        { name: "Marco Zero", latlng: [-8.062653, -34.871279] },
-        { name: "Instituto Ricardo Brennand", latlng: [-8.047191, -34.959897] }
+        { name: "Restaurante Vegano", latlng: [-8.121999, -34.901051] },
+        { name: "Restaurante sem gluten", latlng: [-8.062653, -34.871279] },
+        { name: "Restaurante sem lactose", latlng: [-8.047191, -34.959897] }
     ];
 
     points.forEach(function (point) {
