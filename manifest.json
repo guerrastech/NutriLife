@@ -11,10 +11,12 @@
   "theme_color": "#466546",
   "icons": [
     {
-      "src": "android/android-launchericon-512-512.png",
-      "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "maskable"
+      
+        "src": "./assets/images/app-icon.png",
+        "type": "image/png",
+        "sizes": "1280x594",
+        "purpose": "maskable"
+    
     },
     {
       "src": "android/android-launchericon-512-512.png",
