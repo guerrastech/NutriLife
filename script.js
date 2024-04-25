@@ -11,6 +11,11 @@ var iconFood = L.icon({
     popupAnchor:  [-3, -76] 
 });
 
+
+
+
+
+
 var Lugar = L.icon({
     iconUrl: '../assets/icons-sgv/restaurante.png',
 
@@ -144,10 +149,11 @@ function login() {
 
 
 function register() {
-    window.location.href = "page/dietaryRestrictionsPage.html";
+    window.location.href = "dietaryRestrictionsPage.html";
 }
 
 
+// Side Bar function
 
 function openNav() {
     document.getElementById("mySidebar").style.width = "200px";

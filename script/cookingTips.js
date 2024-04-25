@@ -1,5 +1,5 @@
 async function buscarReceitas() {
-    const url = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=618b416857db4fc1a12e6026031c4197&diet=vegetarian';
+    const url = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=90097308c4ca4180a5165c20937e9460&diet=vegetarian';
     const response = await fetch(url, {
         mode: 'cors', 
     });
@@ -11,7 +11,7 @@ async function buscarReceitas() {
 
 
     async function buscarReceitasPreparo(id) {
-    const url = 'https://api.spoonacular.com/recipes/${id}/information?apiKey=618b416857db4fc1a12e6026031c4197';
+    const url = 'https://api.spoonacular.com/recipes/${id}/information?apiKey=90097308c4ca4180a5165c20937e9460';
     const response = await fetch(url, {
         mode: 'cors', 
     });
