@@ -1,41 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#466546"/>
-    <link rel="icon" type="image/png" href="/assets/images/app-icon.png">
-    <meta name="description" content="Category: Healthy Food">
-    <link rel="stylesheet" href="../style/registerPage.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style/variables.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#466546" />
+    <link rel="icon" type="image/png" href="/assets/images/app-icon.png" />
+    <meta name="description" content="Category: Healthy Food" />
+    <link rel="stylesheet" href="../style/registerPage.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style/variables.css" />
     <title>NutriLife</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="app-info-container">
-        <img src="../assets/images/NutriLife-logo.png" alt="Logo do aplicativo">
-        <!-- <h1>NutriLife</h1> -->
+      <img src="../assets/images/NutriLife-logo.png" alt="Logo do aplicativo" />
+      <!-- <h1>NutriLife</h1> -->
     </div>
     <div class="register-container">
-        <h2>Registrar-se</h2>
-        <p>Parece que você ainda não tem uma conta. Vamos criar uma para você.</p>
-        <form>
-            <input type="text" name="text" placeholder="Nome" required>
-            <input style="margin-top: 20px;" type="email" name="email" placeholder="Email" required>
-            <input style="margin-top: 20px;" type="password" name="password" placeholder="Senha" required>
-            <div class="forgot-password">
-            </div>
-        </form>
-        <div class="privacy-politic-text">
-            <p style="margin-top: 30px;">Ao pressionar Criar Conta abaixo, eu concordo com os <a href="">Termos de Serviço & Política de Privacidade</a></p>
-        </div>
-        <div class="submit-button">
-            <button onclick="register()">CRIAR CONTA</button>
-        </div>
-        <div class="login-link">
-            <p>Já tem uma conta? <a href="../index.html">Entre</a></p>
-        </div>
+      <h2>Registrar-se</h2>
+      <p>Parece que você ainda não tem uma conta. Vamos criar uma para você.</p>
+      <form>
+        <input type="text" name="text" placeholder="Nome" required />
+        <input
+          style="margin-top: 20px"
+          type="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+        <input
+          style="margin-top: 20px"
+          type="password"
+          name="password"
+          placeholder="Senha"
+          required
+        />
+        <div class="forgot-password"></div>
+      </form>
+      <div class="privacy-politic-text">
+        <p style="margin-top: 30px">
+          Ao pressionar Criar Conta abaixo, eu concordo com os
+          <a href="">Termos de Serviço & Política de Privacidade</a>
+        </p>
+      </div>
+      <div class="submit-button">
+        <button onclick="window.location.href='dietaryRestrictionsPage.html'">
+          CRIAR CONTA
+        </button>
+      </div>
+      <div class="login-link">
+        <p>Já tem uma conta? <a href="../index.html">Entre</a></p>
+      </div>
     </div>
     <script src="/script/script.js"></script>
-</body>
+  </body>
 </html>

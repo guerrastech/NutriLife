@@ -7,17 +7,24 @@ body {
 }
 
 header {
+    position: fixed;
+    top: 0;
     width: 100%;
-    height: 40px;
+    height: 80px; 
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 70px;
+    gap: 30px;
     background-color: var(--theme-color);
     color: #fff;
     padding: 20px;
-    text-align: center;
-    font-size: 12px;
+    box-sizing: border-box; 
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 25px;
+    margin-left: 30px;
 }
 
 header .return-arrow a {
@@ -30,14 +37,13 @@ header .return-arrow svg {
     height: 25px;
 }
 
-
 .card-container {
     display: flex;
     justify-content: center;
     align-items: center; 
     flex-direction: column;
+    margin-top: 80px; 
 }
-
 
 .card-container button {
     display: flex;
@@ -66,7 +72,6 @@ header .return-arrow svg {
     margin-left: 10px;
 }
 
-
 /* overlay */
 
 .overlay {
@@ -79,6 +84,7 @@ header .return-arrow svg {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2000;
 }
 
 .overlay-inner {

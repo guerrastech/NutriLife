@@ -2,189 +2,164 @@ var map;
 var marker;
 var control;
 
-
 var iconFood = L.icon({
-    iconUrl: '../assets/icons-sgv/restaurante.png',
+  iconUrl: "../assets/icons-sgv/restaurante.png",
 
-    iconSize:     [60, 60],
-    iconAnchor:   [22, 94], 
-    popupAnchor:  [-3, -76] 
+  iconSize: [60, 60],
+  iconAnchor: [22, 94],
+  popupAnchor: [-3, -76],
 });
-
-
-
-
-
 
 var Lugar = L.icon({
-    iconUrl: '../assets/icons-sgv/restaurante.png',
+  iconUrl: "../assets/icons-sgv/restaurante.png",
 
-    iconSize:     [60, 60],
-    iconAnchor:   [22, 94], 
-    popupAnchor:  [-3, -76] 
+  iconSize: [60, 60],
+  iconAnchor: [22, 94],
+  popupAnchor: [-3, -76],
 });
-
-
-
-
 
 function inicializarMapa() {
-    map = L.map('mapa').setView([-8.047562, -34.877002], 13);
+  map = L.map("mapa").setView([-8.047562, -34.877002], 13);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-    }).addTo(map);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+  }).addTo(map);
 
+  //esse script foi retirado para melhorar a UI do aplicativo, e era responsável por criar rotas
 
-    //esse script foi retirado para melhorar a UI do aplicativo, e era responsável por criar rotas
+  // control = L.Routing.control({
+  //     waypoints: [
+  //         L.latLng(-8.047562, -34.877002),
+  //         L.latLng(-8.047191, -34.959897)
+  //     ],
+  //     routeWhileDragging: true,
+  //     show: false,
+  //     lineOptions: {
+  //         styles: [{color: '#3388ff', opacity: 0.7, weight: 5}]
+  //     }
 
-
-    // control = L.Routing.control({
-    //     waypoints: [
-    //         L.latLng(-8.047562, -34.877002), 
-    //         L.latLng(-8.047191, -34.959897)
-    //     ],
-    //     routeWhileDragging: true,
-    //     show: false,    
-    //     lineOptions: {
-    //         styles: [{color: '#3388ff', opacity: 0.7, weight: 5}]
-    //     }
-    
-    // }).addTo(map);
+  // }).addTo(map);
 }
-
-
-
-
 
 function adicionarMarcadorLocalizacaoUsuario() {
-    navigator.geolocation.getCurrentPosition(function (position) {
-        var userLat = position.coords.latitude;
-        var userLng = position.coords.longitude;
+  navigator.geolocation.getCurrentPosition(function (position) {
+    var userLat = position.coords.latitude;
+    var userLng = position.coords.longitude;
 
-        if (marker) {
-            marker.remove();
-        }
+    if (marker) {
+      marker.remove();
+    }
 
-        marker = L.marker([userLat, userLng], {iconFood}).addTo(map)
-            .bindPopup('Você está aqui')
-            .openPopup();
+    marker = L.marker([userLat, userLng], { iconFood })
+      .addTo(map)
+      .bindPopup("Você está aqui")
+      .openPopup();
 
-        map.setView([userLat, userLng], 13); 
-    });
+    map.setView([userLat, userLng], 13);
+  });
 }
-
-
-
-
 
 function adicionarMarcadoresPreCadastrados() {
-    var points = [
-        { name: "Restaurante Vegano", latlng: [-8.121999, -34.901051] },
-        { name: "Restaurante sem gluten", latlng: [-8.062653, -34.871279] },
-        { name: "Restaurante sem lactose", latlng: [-8.047191, -34.959897] }
-    ];
+  var points = [
+    { name: "Restaurante Vegano", latlng: [-8.121999, -34.901051] },
+    { name: "Restaurante sem gluten", latlng: [-8.062653, -34.871279] },
+    { name: "Restaurante sem lactose", latlng: [-8.047191, -34.959897] },
+  ];
 
-    points.forEach(function (point) {
-        var marker = L.marker(point.latlng, { icon: iconFood }).addTo(map).bindPopup(point.name);
+  points.forEach(function (point) {
+    var marker = L.marker(point.latlng, { icon: iconFood })
+      .addTo(map)
+      .bindPopup(point.name);
 
-       
-        // marker.on('click', function() {
-        //     navigator.geolocation.getCurrentPosition(function (position) {
-        //         var userLat = position.coords.latitude;
-        //         var userLng = position.coords.longitude;
+    // marker.on('click', function() {
+    //     navigator.geolocation.getCurrentPosition(function (position) {
+    //         var userLat = position.coords.latitude;
+    //         var userLng = position.coords.longitude;
 
-        //         var waypoints = [
-        //             L.latLng(userLat, userLng),  
-        //             L.latLng(marker.getLatLng()) 
-        //         ];
+    //         var waypoints = [
+    //             L.latLng(userLat, userLng),
+    //             L.latLng(marker.getLatLng())
+    //         ];
 
-        //         control.setWaypoints(waypoints);
-        //         control.route();
-        //     });
-        // });
+    //         control.setWaypoints(waypoints);
+    //         control.route();
+    //     });
+    // });
+  });
+}
+
+function buscarLocalizacao() {
+  var input = document.getElementById("restaurante").value;
+
+  fetch(
+    "https://nominatim.openstreetmap.org/search?q=" + input + "&format=json"
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      if (data && data.length > 0) {
+        var lat = data[0].lat;
+        var lon = data[0].lon;
+
+        if (marker) {
+          marker.remove();
+        }
+
+        marker = L.marker([lat, lon]).addTo(map).bindPopup(input).openPopup();
+
+        map.setView([lat, lon], 13);
+      }
+    })
+    .catch((error) => {
+      console.error("Erro ao buscar localização:", error);
     });
 }
 
-
-
-function buscarLocalizacao() {
-    var input = document.getElementById('restaurante').value;
-
-    fetch('https://nominatim.openstreetmap.org/search?q=' + input + '&format=json')
-        .then(response => response.json())
-        .then(data => {
-            if (data && data.length > 0) {
-                var lat = data[0].lat;
-                var lon = data[0].lon;
-
-                if (marker) {
-                    marker.remove(); 
-                }
-
-                marker = L.marker([lat, lon]).addTo(map)
-                    .bindPopup(input)
-                    .openPopup();
-
-                map.setView([lat, lon], 13);  
-            }
-        })
-        .catch(error => {
-            console.error('Erro ao buscar localização:', error);
-        });
-}
-
-window.addEventListener('resize', function () {
-    map.invalidateSize();
+window.addEventListener("resize", function () {
+  map.invalidateSize();
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    inicializarMapa();
-    adicionarMarcadorLocalizacaoUsuario();
-    adicionarMarcadoresPreCadastrados();
+document.addEventListener("DOMContentLoaded", function () {
+  inicializarMapa();
+  adicionarMarcadorLocalizacaoUsuario();
+  adicionarMarcadoresPreCadastrados();
 });
-
-
 
 // enter functions
 function login() {
-    window.location.href = "pages/home.html";
+  window.location.href = "pages/home.html";
 }
 
-
-function register() {
-    window.location.href = "dietaryRestrictionsPage.html";
-}
-
+// function register() {
+//   window.location.href = "pages/dietaryRestrictionsPage.html";
+// }
 
 // Side Bar function
 
 function openNav() {
-    document.getElementById("mySidebar").style.width = "200px";
+  document.getElementById("mySidebar").style.width = "200px";
 }
 
 function closeNav() {
-    document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("mySidebar").style.width = "0";
 }
 
-window.onclick = function(event) {
-    if (event.target == document.getElementById("mySidebar")) {
-        closeNav();
-    }
+window.onclick = function (event) {
+  if (event.target == document.getElementById("mySidebar")) {
+    closeNav();
+  }
 };
 
-
-//Service Worker 
+//Service Worker
 
 let newWorker;
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./sw.js').then(reg => {
-    reg.addEventListener('updatefound', () => {
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js").then((reg) => {
+    reg.addEventListener("updatefound", () => {
       newWorker = reg.installing;
     });
   });
   let refreshing;
-  navigator.serviceWorker.addEventListener('controllerchange', function () {
+  navigator.serviceWorker.addEventListener("controllerchange", function () {
     if (refreshing) return;
     window.location.reload();
     refreshing = true;
