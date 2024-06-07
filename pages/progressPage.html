@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acompanhamento de Progresso</title>
+    <link rel="stylesheet" href="../style/progressPage.css">
+    <link rel="stylesheet" href="../style/variables.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="return-arrow">
+            <a href="./home.html">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+            </a>
+        </div>
+        <h1>Acompanhamento de Progresso</h1>
+    </header>
+    <main>
+        <section class="goals">
+            <h2>Metas Atuais</h2>
+            <div class="goal-list">
+                <div class="goal-item">Peso: <span>70kg</span></div>
+                <div class="goal-item">Calorias Diárias: <span>2000 kcal</span></div>
+                <div class="goal-item">Proteínas: <span>150g</span></div>
+                <div class="goal-item">Carboidratos: <span>250g</span></div>
+                <div class="goal-item">Gorduras: <span>70g</span></div>
+            </div>
+            <button class="btn-config">Configurar Metas</button>
+        </section>
+        <section class="charts">
+            <h2>Progresso</h2>
+            <div class="chart-container">
+                <h3>Peso</h3>
+                <canvas id="weightChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Calorias</h3>
+                <canvas id="caloriesChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Macronutrientes</h3>
+                <canvas id="macrosChart"></canvas>
+            </div>
+        </section>
+        <section class="daily-summary">
+            <h2>Resumo Diário</h2>
+            <input type="date" id="summary-date" name="summary-date">
+            <div class="summary-details">
+                <p>Calorias Ingeridas: <span>1800 kcal</span></p>
+                <p>Proteínas: <span>140g</span></p>
+                <p>Carboidratos: <span>230g</span></p>
+                <p>Gorduras: <span>65g</span></p>
+            </div>
+        </section>
+    <div class="button-actions">
+        <button class="btn-history">Ver Histórico Completo</button>
+    </div>
+    <script src="../script/progressPage.js"></script>
+</body>
+</html>
