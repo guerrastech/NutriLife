@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil do Usuário</title>
+    <link rel="stylesheet" href="../style/userProfile.css" />
+    <link rel="stylesheet" href="../style/variables.css" />
+  </head>
+  <body>
+    <header>
+      <div class="return-arrow">
+        <a href="./home.html">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
+          </svg>
+        </a>
+      </div>
+      <h1>Perfil do Usuário</h1>
+    </header>
+    <form class="profile-form">
+      <h3>Nome:</h3>
+      <input type="text" id="name" name="name" required />
+
+      <h3>Email:</h3>
+      <input type="email" id="email" name="email" required />
+
+      <h3>Senha:</h3>
+      <input type="password" id="password" name="password" required />
+      <div class="show-password">
+        <input
+          type="checkbox"
+          id="show-password-checkbox"
+          onclick="togglePasswordVisibility()"
+        />
+        <label for="show-password-checkbox">Mostrar senha</label>
+      </div>
+
+      <h3 style="margin-top: 30px">Data de Nascimento:</h3>
+      <input type="date" id="birthdate" name="birthdate" required />
+    </form>
+    <div class="button-update">
+      <button type="submit">Salvar Mudanças</button>
+    </div>
+
+    <script>
+      function togglePasswordVisibility() {
+        const passwordField = document.getElementById("password");
+        const showPasswordCheckbox = document.getElementById(
+          "show-password-checkbox"
+        );
+        if (showPasswordCheckbox.checked) {
+          passwordField.type = "text";
+        } else {
+          passwordField.type = "password";
+        }
+      }
+    </script>
+  </body>
+</html>
 
