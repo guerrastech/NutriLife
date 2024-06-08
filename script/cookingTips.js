@@ -1,17 +1,5 @@
 async function buscarReceitas() {
-    const url = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=90097308c4ca4180a5165c20937e9460&diet=vegetarian';
-    const response = await fetch(url, {
-        mode: 'cors', 
-    });
-    if (!response.ok) {
-        throw new Error('Não foi possível encontrar as receitas');
-    }
-    return await response.json();
-}
-
-
-    async function buscarReceitasPreparo(id) {
-    const url = 'https://api.spoonacular.com/recipes/${id}/information?apiKey=90097308c4ca4180a5165c20937e9460';
+    const url = 'https://nutrilife-api.onrender.com/NutriLife/api/revenues/get';
     const response = await fetch(url, {
         mode: 'cors', 
     });
@@ -30,14 +18,14 @@ function criarElementoReceita(receita) {
     const link = document.createElement("button");
     link.className = "card-food-container";
     link.onclick = function() {
-        mostrarDetalhe(receita.id);
+        mostrarDetalhe(receita._id);
     };
 
     const containner = document.createElement("div");
     containner.className = "card-food";
 
     const img = document.createElement("img");
-    img.src = receita.image; 
+    img.src = receita.img_url; 
     img.alt = receita.title; 
     containner.appendChild(img);
 
@@ -51,14 +39,8 @@ function criarElementoReceita(receita) {
     return link;
 }
 
-
-
-
-
-
-
 async function mostrarDetalhe(id) {
-    const url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=618b416857db4fc1a12e6026031c4197`;
+    const url = `https://nutrilife-api.onrender.com/NutriLife/api/revenues/get/id/${id}`;
     const response = await fetch(url, {
         mode: 'cors', 
     });
@@ -82,25 +64,19 @@ async function mostrarDetalhe(id) {
 
     overlayInner.appendChild(close);
 
-    if (receita.analyzedInstructions && receita.analyzedInstructions.length > 0) {
-        const instructionsTitle = document.createElement("h2");
-        instructionsTitle.innerText = "Modo de preparo:";
-        overlayInner.appendChild(instructionsTitle);
+    const img = document.createElement("img");
+    img.src = receita.img_url; 
+    img.alt = receita.title; 
+    overlayInner.appendChild(img);
 
-        const instructionsList = document.createElement("ol");
-        receita.analyzedInstructions.forEach(instruction => {
-            instruction.steps.forEach(step => {
-                const instructionItem = document.createElement("li");
-                instructionItem.innerText = step.step;
-                instructionsList.appendChild(instructionItem);
-            });
-        });
-        overlayInner.appendChild(instructionsList);
-    } else {
-        const noInstructions = document.createElement("p");
-        noInstructions.innerText = "Não há instruções disponíveis para esta receita.";
-        overlayInner.appendChild(noInstructions);
-    }
+    const titulo = document.createElement("h2");
+    titulo.className = "card-food-title";
+    titulo.innerText = receita.title; 
+    overlayInner.appendChild(titulo);
+
+    const descricao = document.createElement("p");
+    descricao.innerText = receita.description; 
+    overlayInner.appendChild(descricao);
 
     overlay.appendChild(overlayInner);
     document.body.appendChild(overlay);
@@ -108,22 +84,11 @@ async function mostrarDetalhe(id) {
     overlay.style.display = "block";
 }
 
+async function carregarReceitas() {
+    const receitas = await buscarReceitas();
+    receitas.forEach(receita => {
+        criarElementoReceita(receita);
+    });
+}
 
-
-
-
-
-
-
-
-
-
-    async function carregarReceitas() {
-        const { results } = await buscarReceitas();
-        results.forEach(receita => {
-            criarElementoReceita(receita);
-        });
-        console.log(results)
-    }
-
-    carregarReceitas();
+carregarReceitas();

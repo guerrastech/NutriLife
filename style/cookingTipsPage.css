@@ -116,10 +116,10 @@ header .return-arrow svg {
     justify-content: center;
 }
 
-.overlay-inner .inner-box img {
+.overlay-inner .imagem {
     margin-right: 20px;
-    width: 150px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
 }
 
 .overlay-inner .inner-box h3 {

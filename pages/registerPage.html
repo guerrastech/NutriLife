@@ -1,60 +1,116 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#466546" />
-    <link rel="icon" type="image/png" href="/assets/images/app-icon.png" />
-    <meta name="description" content="Category: Healthy Food" />
-    <link rel="stylesheet" href="../style/registerPage.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../style/variables.css" />
-    <title>NutriLife</title>
-  </head>
-  <body>
-    <div class="app-info-container">
-      <img src="../assets/images/NutriLife-logo.png" alt="Logo do aplicativo" />
-      <!-- <h1>NutriLife</h1> -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#466546" />
+  <link rel="icon" type="image/png" href="/assets/images/app-icon.png" />
+  <meta name="description" content="Category: Healthy Food" />
+  <link rel="stylesheet" href="../style/registerPage.css" />
+  <link rel="stylesheet" href="../style/variables.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../style/variables.css" />
+  <title>NutriLife</title>
+
+
+</head>
+<body>
+  <div class="app-info-container">
+    <img src="../assets/images/NutriLife-logo.png" alt="Logo do aplicativo" />
+  </div>
+  <div class="register-container">
+    <h2>Registrar-se</h2>
+    <p>Parece que você ainda não tem uma conta. Vamos criar uma para você.</p>
+    <form id="form-cadastrer">
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="text" name="name" placeholder="Nome" required />
+      <input type="password" name="password" placeholder="Senha" required />
+      <input placeholder="Selecionar Preferências" onclick="togglePreferences()">
+   
+    <div id="preferences-container">
+      <div class="overlay" id="overlay" onclick="togglePreferences()"></div> 
+      <div class="preferences-form"> 
+        <h2>Registro de Preferências Alimentares</h2>
+        <form class="preferences-form">
+          <h4 style="margin-bottom: 15px;">Preferências Alimentares:</h4>
+          <div class="preferences">
+            
+            <label>
+                <input type="checkbox" name="vegan" value="vegan">
+                Vegano
+            </label>
+            <label>
+                <input type="checkbox" name="gluten-free" value="gluten-free">
+                Livre de Glúten
+            </label>
+            <label>
+                <input type="checkbox" name="lactose-free" value="lactose-free">
+                Livre de Lactose
+            </label>
+            <label>
+                <input type="checkbox" name="low-carb" value="low-carb">
+                Baixo Carboidratos
+            </label>
+            <label>
+                <input type="checkbox" name="low-fat" value="low-fat">
+                Baixo teor de Gordura
+            </label>
+            <label>
+                <input type="checkbox" name="organic" value="organic">
+                Orgânico
+            </label>
+          </div>
+          <h4 style="margin-bottom: 15px;">Restrições Dietéticas:</h4>
+          <div class="restrictions">
+            <label>
+              <input type="checkbox" name="egg-free" value="egg-free">
+              Sem Ovos
+            </label>
+            <label>
+                <input type="checkbox" name="seafood-free" value="seafood-free">
+                Sem Frutos do Mar
+            </label>
+            <label>
+                <input type="checkbox" name="nut-free" value="nut-free">
+                Sem Nozes
+            </label>
+            <label>
+                <input type="checkbox" name="shellfish-free" value="shellfish-free">
+                Sem Frutos do Mar (Crustáceos)
+            </label>
+            <label>
+                <input type="checkbox" name="dairy-free" value="dairy-free">
+                Sem Laticínios
+            </label>
+            <label>
+                <input type="checkbox" name="soy-free" value="soy-free">
+                Sem Soja
+            </label>
+            <label>
+                <input type="checkbox" name="wheat-free" value="wheat-free">
+                Sem Trigo
+            </label>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="register-container">
-      <h2>Registrar-se</h2>
-      <p>Parece que você ainda não tem uma conta. Vamos criar uma para você.</p>
-      <form>
-        <input type="text" name="text" placeholder="Nome" required />
-        <input
-          style="margin-top: 20px"
-          type="email"
-          name="email"
-          placeholder="Email"
-          required
-        />
-        <input
-          style="margin-top: 20px"
-          type="password"
-          name="password"
-          placeholder="Senha"
-          required
-        />
-        <div class="forgot-password"></div>
-      </form>
-      <div class="privacy-politic-text">
-        <p style="margin-top: 30px">
-          Ao pressionar Criar Conta abaixo, eu concordo com os
-          <a href="">Termos de Serviço & Política de Privacidade</a>
-        </p>
-      </div>
-      <div class="submit-button">
-        <button onclick="window.location.href='dietaryRestrictionsPage.html'">
-          CRIAR CONTA
-        </button>
-      </div>
-      <div class="login-link">
-        <p>Já tem uma conta? <a href="../index.html">Entre</a></p>
-      </div>
+  </form>
+    <div id="message"></div>
+    <div class="privacy-politic-text">
+      <p style="margin-top: 30px">
+        Ao pressionar Criar Conta abaixo, eu concordo com os
+        <a href="">Termos de Serviço & Política de Privacidade</a>
+      </p>
     </div>
-    <script src="/script/script.js"></script>
-  </body>
+    <div class="submit-button">
+      <button onclick="cadastrarUsuario()" type="submit">
+        Criar Conta
+      </button>
+    </div>
+    <div class="login-link">
+      <p>Já tem uma conta? <a href="../index.html">Entre</a></p>
+    </div>
+  </div>
+</body>
+<script src="../script/cadatrerUser.js"></script>
 </html>
