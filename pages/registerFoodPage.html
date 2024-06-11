@@ -8,8 +8,14 @@
     <meta name="description" content="Category: Healthy Food">
     <link rel="stylesheet" href="../style/registerFoodPage.css">
     <link rel="stylesheet" href="../style/variables.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-load-image/2.21.0/load-image.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-canvas-to-blob/4.2.2/canvas-to-blob.min.js"></script>
     <title>NutriLife</title>
 </head>
+
+
+
+
 <body>
     <header>
         <div class="return-arrow">
@@ -22,31 +28,28 @@
         <h1>Cadastro de Refeição</h1>
     </header>
 
-    <form action="register">
+    <form id="form-food" action="register">
 
         <h3>Título</h3>
-        <input id="value-cad" type="text" placeholder="Digite um título para a refeição">
+        <input id="value-cad" type="text" placeholder="Digite um título para a refeição" required>
         <div class="text-area">
             <h3>Descrição</h3>
-            <textarea name="" id="" cols="30" rows="7" placeholder="Digite uma breve descrição da refeição"></textarea>
+            <textarea name="" id="" cols="30" rows="7" placeholder="Digite uma breve descrição da refeição" required></textarea>
         </div>
         <h3>Calorias</h3>
-        <input id="value-cad" type="text" placeholder="Digite quantas calorias tem a refeição">
+        <input id="value" type="text" placeholder="Digite quantas calorias tem a refeição" required>
 
 
         <div class="image-food">
             <video id="video" ></video>
             <canvas id="canvas" ></canvas>
         </div>
+        <div class="button-photo" id="photo"><button>Abrir Câmera</button></div>
         
     </form>
-
-    <div class="button-photo" id="photo"><button>Abrir Câmera</button></div>
     
-
-
-
-    
+    <div class="button-photo"><button type="submit">Cadastrar Refeição</button></div>
+  
 </body>
 <script src="../script/registerFood.js"></script>
 </html>

@@ -2,11 +2,11 @@ body {
     font-family: var(--main-font);
     margin: 0;
     padding: 0;
-    background-color: #eeedeb;
+    background-color: #EEEDEB;
     color: #333;
-  }
-  
-  header {
+}
+
+header {
     position: fixed;
     top: 0;
     width: 100%;
@@ -20,81 +20,86 @@ body {
     padding: 20px;
     box-sizing: border-box; 
     z-index: 1000;
-  }
+}
 
-  header h1 {
+header h1 {
     font-size: 25px;
-  }
-  
-  header .return-arrow a {
+    margin-left: 30px;
+}
+
+header .return-arrow a {
     text-decoration: none;
     color: white;
-  }
-  
-  header .return-arrow svg {
+}
+
+header .return-arrow svg {
     width: 25px;
     height: 25px;
-  }
-  
-  .card-container {
+}
+
+.card-container {
     display: flex;
     justify-content: center;
+    align-items: center; 
+    flex-direction: column;
     margin-top: 80px; 
-  }
-  
-  .card-container button {
+}
+
+.card-container button {
+    display: flex;
+    justify-content: center;
     text-decoration: none;
     color: var(--theme-color);
     display: contents;
-  }
-  
-  .card-food {
-    margin-top: 30px;
-    height: 150px;
-    width: 90%;
-    background-color: #dee3dd;
-    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .card-food img {
-    max-width: 40%;
-    max-height: 80%;
-    border-radius: 10px;
+}
+
+.card-food {
+  height: 150px;
+  width: 90vw;
+  background-color: #DEE3DD;
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+  display: flex; 
+  align-items: center; 
+  margin-top: 30px;
+  gap: 20px;
+}
+
+
+.card-food img {
+    max-width: 40%; 
+    max-height: 80%; 
+    border-radius: 10px; 
     border: none;
     margin-left: 10px;
-  }
-  
-  /* overlay */
-  
-  .overlay {
-    height: 900px;
-    width: 90%;
+}
+
+/* overlay */
+
+.overlay {
+    height: 100vh; 
+    width: 100%;
     position: fixed;
     left: 0;
     top: 0;
-    bottom: 0;
-    right: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+    background: rgba(0,0,0,0.5); 
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .overlay-inner {
+    z-index: 2000;
+}
+
+.overlay-inner {
     background: #fff;
-    width: 1000px;
-    height: 600px;
+    max-width: 90%; 
+    max-height: 90%; 
     padding: 1.5rem;
     position: relative;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: auto; 
     font-size: 1.3rem;
-  }
-  
-  .overlay-inner .close {
+}
+
+.overlay-inner .close {
     cursor: pointer;
     position: absolute;
     top: 1rem;
@@ -103,38 +108,35 @@ body {
     border: none;
     font-size: 17px;
     background-color: transparent;
-  }
-  
-  .close i img:hover {
-    transform: scale(0.9);
-  }
-  
-  .overlay-inner .inner-box {
+    z-index: 2; 
+}
+
+.overlay-inner .inner-box {
     margin-top: 30px;
     display: flex;
     justify-content: center;
-  }
-  
-  .overlay-inner .inner-box img {
+}
+
+.overlay-inner .imagem {
     margin-right: 20px;
-    width: 150px;
-    height: 200px;
-  }
-  
-  .overlay-inner .inner-box h3 {
+    width: 300px;
+    height: 300px;
+}
+
+.overlay-inner .inner-box h3 {
     margin-top: 10px;
     color: green;
-  }
-  
-  .overlay-inner .inner-box h4 {
+}
+
+.overlay-inner .inner-box h4 {
     color: blue;
-  }
-  
-  .overlay-inner .inner-box h4 span {
+}
+
+.overlay-inner .inner-box h4 span {
     margin-left: 15px;
-  }
-  
-  .overlay-inner .inner-box button {
+}
+
+.overlay-inner .inner-box button {
     cursor: pointer;
     margin-left: 10px;
     margin-bottom: 20px;
@@ -146,19 +148,18 @@ body {
     color: white;
     font-weight: bold;
     padding: 0.3rem 0.5rem;
-  }
-  
-  .overlay-inner .inner-box .favoritar-btn {
+}
+
+.overlay-inner .inner-box .favoritar-btn {
     background-color: green;
-  }
-  
-  .overlay-inner .inner-box .esquece-btn {
+}
+
+.overlay-inner .inner-box .esquece-btn {
     background-color: red;
-  }
-  
-  .overlay-inner .inner-box .descricao {
+}
+
+.overlay-inner .inner-box .descricao {
     margin-top: 2rem;
     text-align: justify;
     font-size: 13px;
-  }
-  
+}
