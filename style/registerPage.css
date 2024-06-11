@@ -79,7 +79,7 @@ body {
 .register-container .submit-button {
   display: flex;
   justify-content: center;
-  margin-top: 30%;
+  margin-top: 15%;
 }
 
 .register-container .submit-button button {
@@ -97,7 +97,8 @@ body {
 .register-container .login-link {
   display: flex;
   justify-content: center;
-  margin-top: 20%;
+  margin-top: 10%;
+  margin-bottom: 20px;
 }
 
 .register-container .login-link p {
@@ -111,7 +112,7 @@ body {
 
 /*estilo das preferencias*/
 
-.preferences-form {
+/* .preferences-form {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -172,7 +173,7 @@ body {
   background-color: var(--theme-color);
   border: 2px solid var(--theme-color);
   border-radius: 3px;
-}
+} */
 
 /*overlay*/
 
@@ -229,6 +230,11 @@ body {
 .restrictions {
   display: flex;
 }
+
+
+
+
+
 
 .preferences-dropdown {
   width: 100%;
