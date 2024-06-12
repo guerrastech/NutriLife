@@ -7,9 +7,6 @@ function atualizarTextoBotao() {
     button.textContent = cameraAberta ? 'Tirar Foto' : 'Salvar Foto';
 }
 
-
-
-
 async function tirarFoto() {
     var context = canvas.getContext('2d');
     canvas.width = video.videoWidth;
@@ -37,12 +34,6 @@ async function tirarFoto() {
     });
 }
 
-
-
-
-
-
-
 document.querySelector('#photo').addEventListener('click', () => {
     if (!cameraAberta) {
         navigator.mediaDevices.getUserMedia({ video: true })
@@ -63,7 +54,6 @@ document.querySelector('#photo').addEventListener('click', () => {
 
     }
 });
-
 
 const form = document.getElementById('form-food');
 const id = localStorage.getItem('id');
@@ -98,16 +88,13 @@ form.addEventListener('submit', async (event) => {
 
         if (response.ok) {
             console.log('Refeição cadastrada com sucesso!');
+            setTimeout(function() {
+                window.location.href = "home.html";
+            }, 5000);
         } else {
             console.error('Erro ao cadastrar refeição:', response.statusText);
-            console.log(imgUrl);
         }
     } catch (error) {
         console.error('Erro ao cadastrar refeição:', error.message);
     }
 });
-
-
-        // setTimeout(function() {
-        //     window.location.href = "home.html";
-        // }, 5000);

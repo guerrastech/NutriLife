@@ -29,12 +29,21 @@ async function cadastrarUsuario() {
       }
     );
 
-    if (!response.ok) {
+    if (!response === 200) {
       throw new Error("Erro ao cadastrar usuário");
     }
 
+
+    
     const data = await response.json();
-    document.getElementById("message").textContent = data.message;
+    const messageText = `Cadastro realizado com sucesso!`;
+    document.getElementById("message-text").textContent = messageText;
+    document.getElementById("overlay").style.display = "flex"; 
+    
+    setTimeout(() => {
+      window.location.href = "../index.html";
+    }, 5000);
+
   } catch (error) {
     console.error("Erro ao registrar usuário:", error);
     document.getElementById("message").textContent =
@@ -46,3 +55,6 @@ function togglePreferences() {
   const restrictionsDiv = document.getElementById("preferences-container");
   restrictionsDiv.classList.toggle("show");
 }
+
+
+
