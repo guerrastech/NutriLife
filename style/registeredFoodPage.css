@@ -127,11 +127,10 @@ header .return-arrow svg {
 }
 
 .overlay-inner p {
-    word-wrap: break-word; 
-    overflow-wrap: break-word; 
-    white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
-
 
 /* .overlay-inner .inner-box h3 {
     margin-top: 10px;
